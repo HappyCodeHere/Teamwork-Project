@@ -1,1 +1,6 @@
-Project/node_modules/
+
+node_modules
+
+build
+
+npm-debug.log

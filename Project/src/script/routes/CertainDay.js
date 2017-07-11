@@ -1,6 +1,6 @@
 var div = document.querySelector('div.main');
 var index = {
-    name: 'CertainDay',
+    name: 'certainDay',
     match: '',
     onBeforeEnter: () => console.log(`onBeforeEnter index`),
     onEnter: () => console.log(),
