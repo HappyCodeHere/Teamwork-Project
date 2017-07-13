@@ -2,25 +2,28 @@ import Calendar from '../components/Calendar';
 
 var index = {
     name: 'calendar',
-    match: '',
+    match: 'calendar',
     onBeforeEnter: () => console.log(`onBeforeEnter index`),
-    onEnter: (db) => {
+    onEnter: (url, eventBus, user, db) => {
 
-    	db.load()
+    	db.loadEvents()
 	    	.then(() => {
+          console.log('HERE');
+          var div = document.querySelector('div.main');
+          div.innerHTML = '';
+
+        	const calendarDiv = document.createElement('div');
+        	div.append(calendarDiv);
+
+        	const calendar = new Calendar(calendarDiv).renderCalendar();
 
 	    	})
 	    	.catch(error => {
-
+          // отобразить ошибку
 	    	})
 
 
-    	var div = document.querySelector('div.main');
 
-    	const calendarDiv = document.createElement('div');
-    	div.append(calendarDiv);
-
-    	const calendar = new Calendar(calendarDiv).renderCalendar();
 
     },
     onLeave: () => console.log('onLeave index')

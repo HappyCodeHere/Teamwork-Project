@@ -14,6 +14,7 @@ class Header {
 	            <div class="col-md-2">
 	                <p class="lead">Борисевич Глеб <button class="btn btn-default" >Выход</button><p>
 	            </div>
+							<a href="#calendar/list">Список всех событий</a>
 	        </header>
         `;
 

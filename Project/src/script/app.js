@@ -3,6 +3,7 @@ import { index as calendar } from './routes/calendar';
 import { index as allEvents } from './routes/allEvents';
 import { index as certainDay } from './routes/certainDay';
 import { index as settings } from './routes/settings';
+import { login } from './routes/login';
 
 import Router from './utils/Router';
 import EventBus from './utils/EventBus';
@@ -12,21 +13,21 @@ import Header from './components/Header';
 
 import User from './utils/User';
 
-const routes = [index, calendar, allEvents, certainDay, settings];
+const routes = [index, calendar, allEvents, certainDay, settings, login];
 
 const eventBus = new EventBus();
 
-const db = new DataBase();
+const API = '';
+const db = new DataBase(API);
 
 const user = new User();
 
 const header = document.createElement('div');
 document.body.append(header);
-new Header(header).renderHeader();
-
-new Router(routes, eventBus);
 
 const mainBlock = document.createElement('div');
 mainBlock.classList.add('main');
 document.body.append(mainBlock);
+new Header(header).renderHeader();
 
+new Router({routes, eventBus, db, user});

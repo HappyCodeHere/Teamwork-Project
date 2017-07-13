@@ -30,7 +30,7 @@ var path = {
     },
     watch: {
         html: 'src/**/*.html',
-        js: 'src/js/**/*.js',
+        js: 'src/script/**/*.js',
         css: 'src/style/**/*.css',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
@@ -40,13 +40,14 @@ var path = {
 
 var config = {
     server: {
-        baseDir: "./dist"
+        baseDir: "./build"
     },
     open: false,
     tunnel: false,
     host: 'localhost',
     port: 9000,
-    logPrefix: "Frontend"
+    logPrefix: "Frontend",
+
 };
 
 gulp.task('html:build', function () {
@@ -132,7 +133,7 @@ gulp.task('webserver', function () {
     browserSync(config);
 });
 
-gulp.task('clean', function () {
+gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
 

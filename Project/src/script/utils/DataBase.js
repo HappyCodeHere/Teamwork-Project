@@ -1,9 +1,20 @@
+
+
+class DataBase {
+  constructor(API) {
+
+    this.API = API;
+  }
+
+
   /**
    * Load all events
    * @returns {Promise}
    */
   loadEvents() {
-
+    return new Promise((resolve) => {
+      resolve();
+    })
   }
 
   /**
@@ -50,3 +61,9 @@
   loadComments(eventID) {
 
   }
+
+
+}
+
+
+export default DataBase;
