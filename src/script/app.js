@@ -20,7 +20,7 @@ const eventBus = new EventBus();
 const API = '';
 const db = new DataBase(API);
 
-const user = new User();
+const user = new User(eventBus);
 
 const header = document.createElement('div');
 document.body.append(header);
@@ -28,6 +28,6 @@ document.body.append(header);
 const mainBlock = document.createElement('div');
 mainBlock.classList.add('main');
 document.body.append(mainBlock);
-new Header(header).renderHeader();
+new Header(header, eventBus, user).renderHeader();
 
 new Router({routes, eventBus, db, user});
